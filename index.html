@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💖 Start</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  font-family:Arial;
+  color:white;
+  overflow:hidden;
+  background:radial-gradient(circle,#2a003d,#120018);
+}
+
+h1{
+  font-size:40px;
+  animation:pulse 2s infinite;
+}
+
+button{
+  margin-top:20px;
+  padding:15px 35px;
+  font-size:20px;
+  border:none;
+  border-radius:15px;
+  cursor:pointer;
+  background:#ff4d88;
+  color:white;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.1);
+}
+
+/* نجوم */
+.star{
+  position:absolute;
+  width:3px;
+  height:3px;
+  background:white;
+  border-radius:50%;
+  opacity:0.5;
+  animation:blink 2s infinite alternate;
+}
+
+@keyframes blink{
+  from{opacity:0.2;}
+  to{opacity:1;}
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.05);}
+  100%{transform:scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<h1>💖 Welcome My Love 💖</h1>
+
+<button onclick="go()">Open</button>
+
+<script>
+function go(){
+  window.location.href="game.html";
+}
+
+/* نجوم */
+for(let i=0;i<80;i++){
+  let s=document.createElement("div");
+  s.className="star";
+  s.style.left=Math.random()*100+"vw";
+  s.style.top=Math.random()*100+"vh";
+  s.style.animationDuration=(1+Math.random()*3)+"s";
+  document.body.appendChild(s);
+}
+</script>
+
+</body>
+</html>
