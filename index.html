@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌌 رسالة عبر الكواكب</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  overflow:hidden;
+  font-family:Arial;
+  direction:rtl;
+  color:white;
+  background: radial-gradient(circle at top, #1b2735, #090a0f);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* stars */
+.star{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:white;
+  border-radius:50%;
+  animation:blink 2s infinite;
+}
+@keyframes blink{
+  0%,100%{opacity:0.2;}
+  50%{opacity:1;}
+}
+
+/* planets */
+.planet{
+  position:absolute;
+  border-radius:50%;
+  opacity:0.7;
+  animation:float 6s infinite ease-in-out;
+}
+@keyframes float{
+  0%{transform:translateY(0px);}
+  50%{transform:translateY(-20px);}
+  100%{transform:translateY(0px);}
+}
+
+/* box */
+.box{
+  background:rgba(0,0,0,0.6);
+  padding:25px;
+  border-radius:20px;
+  max-width:420px;
+  text-align:center;
+  box-shadow:0 0 25px rgba(255,255,255,0.15);
+  display:none;
+}
+
+button{
+  padding:12px 20px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  font-size:16px;
+  background:#ff4d6d;
+  color:white;
+}
+
+h1{font-size:24px;}
+p{line-height:1.6;}
+</style>
+</head>
+
+<body>
+
+<button onclick="openMsg()">💌 افتحي الرسالة</button>
+
+<div class="box" id="msg">
+  <h1>🌌 رسالة من بين الكواكب</h1>
+  <p>
+    كل نجم بالسما عم يهمس باسمك ✨<br>
+    وكل كوكب عم يلف… كأنو عم يدور حواليكي 🌙<br><br>
+
+    إذا الدنيا بعيدة… أنا ما بدي قرب غير لعيونك 💖<br><br>
+
+    هاي الرسالة مش كلمة… هاي إحساس ما بينكتب بسهولة 💫
+  </p>
+</div>
+
+<script>
+function openMsg(){
+  document.querySelector("button").style.display="none";
+  document.getElementById("msg").style.display="block";
+}
+
+// stars
+for(let i=0;i<90;i++){
+  let s=document.createElement("div");
+  s.className="star";
+  s.style.top=Math.random()*100+"vh";
+  s.style.left=Math.random()*100+"vw";
+  s.style.animationDuration=(Math.random()*3+1)+"s";
+  document.body.appendChild(s);
+}
+
+// planets
+for(let i=0;i<6;i++){
+  let p=document.createElement("div");
+  p.className="planet";
+  p.style.width=(15+Math.random()*40)+"px";
+  p.style.height=p.style.width;
+  p.style.background=["#ffcc00","#6ec6ff","#ff6ea8","#9bff6e","#b38cff","#ff914d"][i];
+  p.style.top=Math.random()*100+"vh";
+  p.style.left=Math.random()*100+"vw";
+  p.style.animationDuration=(4+Math.random()*5)+"s";
+  document.body.appendChild(p);
+}
+</script>
+
+</body>
+</html>
