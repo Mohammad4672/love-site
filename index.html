@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💖 Ruba</title>
+
+<style>
+body{
+margin:0;
+height:100vh;
+overflow:hidden;
+background:linear-gradient(135deg,#0f001f,#2b003d,#ff2d75);
+font-family:Tahoma;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+}
+
+/* كوكب خفيف */
+.planet{
+position:absolute;
+width:250px;
+height:250px;
+border-radius:50%;
+background:radial-gradient(circle at 30% 30%,#ffb3d1,#ff2d75 70%);
+top:-80px;
+left:-80px;
+opacity:0.2;
+}
+
+/* نجوم خفيفة */
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+border-radius:50%;
+opacity:0.6;
+animation:twinkle 5s infinite;
+}
+
+@keyframes twinkle{
+0%{opacity:0.2;}
+50%{opacity:0.8;}
+100%{opacity:0.2;}
+}
+
+/* عنوان */
+.container{
+text-align:center;
+z-index:2;
+}
+
+h1{
+font-size:55px;
+text-shadow:0 0 20px #ff99cc;
+margin-bottom:30px;
+}
+
+/* ظروف */
+.box{
+display:flex;
+gap:20px;
+justify-content:center;
+}
+
+.envelope{
+width:120px;
+height:80px;
+background:#fff;
+border-radius:10px;
+position:relative;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 0 15px rgba(255,255,255,0.3);
+}
+
+.envelope:hover{
+transform:scale(1.08);
+}
+
+.envelope:before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:0;
+height:0;
+border-left:60px solid transparent;
+border-right:60px solid transparent;
+border-top:40px solid #ff4d88;
+}
+
+/* popup */
+.popup{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.8);
+display:none;
+justify-content:center;
+align-items:center;
+}
+
+.card{
+background:linear-gradient(45deg,#ff4d88,#ff99bb);
+padding:40px;
+border-radius:20px;
+font-size:28px;
+text-align:center;
+box-shadow:0 0 25px rgba(255,255,255,0.3);
+}
+
+.close{
+margin-top:20px;
+padding:10px 25px;
+border:none;
+border-radius:20px;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="planet"></div>
+
+<div class="container">
+
+<h1>رُبى 💖</h1>
+
+<div class="box">
+
+<div class="envelope" onclick="openMsg('بحبك ❤️')"></div>
+<div class="envelope" onclick="openMsg('بموت فيكي 💖')"></div>
+<div class="envelope" onclick="openMsg('بعشقك ✨')"></div>
+
+</div>
+
+</div>
+
+<div class="popup" id="popup">
+<div class="card">
+<div id="text"></div>
+<button class="close" onclick="closeMsg()">إغلاق</button>
+</div>
+</div>
+
+<script>
+
+/* نجوم خفيفة */
+for(let i=0;i<25;i++){
+let star=document.createElement("div");
+star.className="star";
+star.style.top=Math.random()*100+"vh";
+star.style.left=Math.random()*100+"vw";
+document.body.appendChild(star);
+}
+
+/* فتح الرسالة */
+function openMsg(msg){
+document.getElementById("popup").style.display="flex";
+document.getElementById("text").innerText=msg;
+}
+
+function closeMsg(){
+document.getElementById("popup").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
