@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruba 💖</title>
+
+<style>
+body{
+margin:0;
+height:100vh;
+overflow:hidden;
+background:linear-gradient(135deg,#0f001f,#2b003d,#ff2d75);
+font-family:Tahoma;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+color:white;
+}
+
+h1{
+position:absolute;
+top:20px;
+font-size:55px;
+text-shadow:0 0 20px #ff99cc;
+}
+
+.btn{
+padding:15px 30px;
+border:none;
+border-radius:30px;
+background:white;
+color:#ff2d75;
+font-size:18px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.text{
+margin-top:20px;
+font-size:22px;
+text-align:center;
+white-space:pre-line;
+max-width:80%;
+min-height:120px;
+}
+
+/* قلوب خفيفة */
+.heart{
+position:absolute;
+bottom:-40px;
+font-size:18px;
+animation:float 7s linear forwards;
+opacity:0.7;
+}
+
+@keyframes float{
+0%{transform:translateY(0);opacity:0;}
+20%{opacity:1;}
+100%{transform:translateY(-120vh);opacity:0;}
+}
+
+/* secret */
+.secret{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.85);
+display:none;
+justify-content:center;
+align-items:center;
+}
+
+.box{
+background:linear-gradient(45deg,#ff4d88,#ff99bb);
+padding:30px;
+border-radius:20px;
+max-width:600px;
+text-align:center;
+font-size:22px;
+line-height:2;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Ruba 💖</h1>
+
+<button class="btn" onclick="start()">
+افتحي القلب 💌
+</button>
+
+<div class="text" id="text"></div>
+
+<div class="secret" id="secret">
+<div class="box">
+قلبي انا كتيررر بحبك وبحياتي ما رح حب غيرك ❤️<br>
+وما رح يكون بقلبي غيرك 💖<br><br>
+
+يا احلى بنت بالدنيا ✨<br>
+بدي ياكي قوية 🌙<br><br>
+
+وانشالله ضحكتك دايماً 💕<br>
+وبشوفك احلى محامية 👩‍⚖️<br><br>
+
+بحبككك يا رُبى 💖
+</div>
+</div>
+
+<script>
+
+/* قلوب خفيفة */
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="💖";
+h.style.left=Math.random()*100+"vw";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),7000);
+},600);
+
+/* الرسالة */
+let msg = "قلبي انا كتيررر بحبك وبحياتي ما رح حب غيرك...\nوما رح يكون بقلبي غيرك ❤️\nيا احلى بنت بالدنيا ✨\n\nبدي ياكي قوية دايماً 🌙\nوانشالله ضحكتك دايماً 💕\nوبشوفك احلى محامية 👩‍⚖️\n\nبحبككك يا احلى رُبى بالدنيا 💖";
+
+let i = 0;
+
+function type(){
+if(i < msg.length){
+document.getElementById("text").innerText += msg.charAt(i);
+i++;
+setTimeout(type,35); // 👈 السر هنا (خفيف وثابت)
+} else {
+setTimeout(()=>{
+document.getElementById("secret").style.display="flex";
+},800);
+}
+}
+
+function start(){
+document.querySelector(".btn").style.display="none";
+type();
+}
+
+</script>
+
+</body>
+</html>
